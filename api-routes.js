@@ -73,7 +73,7 @@ router.route('/contacts/:contact_name').put(async (req, res) => {
         let test = await Contact.findOne({ name: req.params.contact_name });
         if (!test) return res.status(400).send("Contact with this name do not exist!");
 
-        await Contact.remove({ name: req.params.contact_name });
+        await Contact.deleteOne({ name: req.params.contact_name });
         
         res.json({
             status: 'success',
