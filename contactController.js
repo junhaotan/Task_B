@@ -1,38 +1,27 @@
 // contactController.js
 // Import contact model
-Contact = require('./contactModel');
+const { Contact, validate } = require("./model/contactModel")
 // Handle index actions
 exports.index = function (req, res) {
-    Contact.get(function (err, contacts) {
-        if (err) {
-            res.json({
-                status: "error",
-                message: err,
-            });
-        }
-        res.json({
-            status: "success",
-            message: "Contacts retrieved successfully",
-            data: contacts
-        });
-    });
+    
 };
 // Handle create contact actions
-exports.new = function (req, res) {
-    var contact = new Contact();
-    contact.name = req.body.name ? req.body.name : contact.name;
-    contact.gender = req.body.gender;
-    contact.email = req.body.email;
-    contact.phone = req.body.phone;
-// save the contact and check for errors
-    contact.save(function (err) {
-        // if (err)
-        //     res.json(err);
-res.json({
-            message: 'New contact created!',
-            data: contact
+exports.new = async (req, res) => {
+    try {
+        console.log(req.body);
+
+        //Create new Contact and save it into the Database
+        const doc = new Contact({
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            gender: req.body.gender
         });
-    });
+        await doc.save();
+
+    } catch (error) {
+        res.status(400).send("An error occured, details: " + error);
+    }
 };
 // Handle view contact info
 exports.view = function (req, res) {
