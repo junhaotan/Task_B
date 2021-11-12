@@ -33,7 +33,7 @@ app.listen(port, function () {
 
 module.exports = app;
 
-exports.handler = function index(event) {
+exports.handler = function app(event) {
   const response = {
       statusCode: 200,
       body: JSON.stringify(event),
