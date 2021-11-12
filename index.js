@@ -31,12 +31,12 @@ app.listen(port, function () {
     console.log("Running application on port " + port);
 });
 
-exports.handler = async (event) => {
+module.exports = app;
+
+exports.handler = function index(event) {
   const response = {
       statusCode: 200,
-      body: JSON.stringify('Hello from Lambda!'),
+      body: JSON.stringify(event),
   };
   return response;
 };
-
-module.exports = app;
