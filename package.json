@@ -4,7 +4,7 @@
   "description": "CRUD application task",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --exit",
     "start": "node index.js"
   },
   "author": "Tan Jun Hao",
@@ -14,5 +14,10 @@
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "mongoose": "^6.0.7"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.1.3"
   }
 }

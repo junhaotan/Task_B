@@ -9,7 +9,7 @@ module.exports = async function connection() {
 
         await mongoose.connect("mongodb+srv://admin:admin@cluster0.vl3kf.mongodb.net/test", connectionParams);
 
-        console.log("Connected to User Account MongoDB");
+        // console.log("Connected to User Account MongoDB");
     } catch (error) {
         console.log(error, "Could not connect to User Account MongoDB");
     }

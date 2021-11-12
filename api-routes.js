@@ -21,7 +21,6 @@ router.route('/contacts').get(function (req, res) {
     });
 }).post(async (req, res) => {
     try {
-        console.log(req.body);
         //Get account details (email, pw etc.) from request body
         const { error } = validate(req.body);
         
