@@ -1,12 +1,19 @@
 language: node_js
 node_js:
-  - 14
+  - node
 services: mongodb
 
-before_script:
-  - npm install
+cache:
+  directories:
+    - node_modules
+
+deploy:
+  provider: lambda
+  function_name: "task-b"
+  region: "ap-southeast-1"
+  role: "arn:aws:lambda:ap-southeast-1:540158443091:function:task-b"
+  runtime: "nodejs14.x"
+  handler_name: "handler"
 
 script: 
-  - npm install -g serverless
   - npm test
-  - sls deploy
