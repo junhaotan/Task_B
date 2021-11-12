@@ -9,6 +9,8 @@ chai.use(chaiHttp);
 chai.should();
 
 describe('Contacts start with empty database', () => {
+    this.timeout(120000);
+
     before((done) => { //Before start of test we empty the database
         Contact.deleteMany({}, (err) => {
            done();
