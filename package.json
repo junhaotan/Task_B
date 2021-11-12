@@ -4,7 +4,7 @@
   "description": "CRUD application task",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit",
+    "test": "mocha --timeout 10000 --exit",
     "start": "node index.js"
   },
   "author": "Tan Jun Hao",
